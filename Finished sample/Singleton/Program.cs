@@ -20,6 +20,6 @@ Logger.Instance.Log($"Message from {nameof(Logger.Instance)}");
 // imdb instance
 var imdb = InMemoryDB.Instance;
 
-Logger.Instance.Log("\n");
+Logger.Instance.Log();
 Logger.Instance.Log("Testing imdb instance"); 
 Logger.Instance.Log($"{imdb.GetRate()} {imdb.GetName()} {imdb.GetCounty()}");

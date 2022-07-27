@@ -39,11 +39,11 @@ namespace Singleton
         /// <summary>
         /// SingletonOperation
         /// </summary> 
-        public void Log(string message)
+        public void Log(string message = "")
         {
-            if (message.Equals("\n"))
+            if (string.IsNullOrEmpty(message))
             {
-                Console.WriteLine(message);
+                Console.WriteLine();
             }
             else
             { 
@@ -53,7 +53,7 @@ namespace Singleton
     }
 }
 
-// IMDB Singelton  
+// IMDB Singleton  
 
 public sealed class InMemoryDB
 {
@@ -61,7 +61,7 @@ public sealed class InMemoryDB
     private List<string>? _names;
     private List<string>? _counties;
 
-    private static readonly Lazy<InMemoryDB> _imdb
+    private static readonly Lazy<InMemoryDB> _imdb 
         = new Lazy<InMemoryDB>(FactoryInMemoryDB().Result);
 
     /// <summary>
@@ -91,7 +91,7 @@ public sealed class InMemoryDB
     }
 
     /// <summary>
-    /// SingletonOperation
+    /// SingletonOperations
     /// </summary> 
     public decimal? GetRate()
     {
