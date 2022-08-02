@@ -62,7 +62,7 @@ public sealed class InMemoryDB
     private List<string>? _counties;
 
     private static readonly Lazy<InMemoryDB> _imdb 
-        = new Lazy<InMemoryDB>(FactoryInMemoryDB().Result);
+        = new Lazy<InMemoryDB>(() => Task.Run(async () => await InMemoryDatabaseFactory()).Result);
 
     /// <summary>
     /// Instance
@@ -75,7 +75,7 @@ public sealed class InMemoryDB
     private InMemoryDB()
     {
     }
-    async private static Task<InMemoryDB> FactoryInMemoryDB()
+    async private static Task<InMemoryDB> InMemoryDatabaseFactory()
     {
         var ratesTask = Task.FromResult(new List<decimal> { 777, 14, 2 }); // Replace Task.FromResult with the real async call 
         var namesTask = Task.FromResult(new List<string> { "nameDemo", "AA", "BB" });
