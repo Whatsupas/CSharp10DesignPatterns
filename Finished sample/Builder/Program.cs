@@ -1,4 +1,5 @@
 ﻿using BuilderPattern;
+using FluentBuilder;
 
 
 //Director director = new Director();
@@ -32,5 +33,17 @@ garage.Construct(bmwBuilder);
 Console.WriteLine(bmwBuilder.Car.ToString());
 // or: 
 garage.Show();
- 
+
+Console.WriteLine();
+Console.WriteLine("Fluent Builder");
+
+var defaultBus = new Bus();
+defaultBus.Show();
+
+var bus = new Bus.BusBuilder().WithModel("Volvo").WithColor("Red").WithManufactureYear(2005).Build();
+bus.Show();
+
+var anotherBus = new Bus.BusBuilder().WithModel("Volvo").WithManufactureYear(2010).Build();
+anotherBus.Show();
+
 Console.ReadKey();
