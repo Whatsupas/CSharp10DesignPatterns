@@ -91,6 +91,18 @@ namespace AbstractFactory
         }
     }
 
+    public class HybridShoppingCartPurchaseFactory : IShoppingCartPurchaseFactory
+    {
+        public IDiscountService CreateDiscountService()
+        {
+            return new BelgiumDiscountService();
+        }
+
+        public IShippingCostsService CreateShippingCostsService()
+        {
+            return new FranceShippingCostsService();
+        }
+    }
 
     /// <summary>
     /// Client class 
